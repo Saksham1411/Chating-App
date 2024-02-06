@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 const signup = async (req, res) => {
     try {
         const { fullName, username, password, confirmPassword, gender } = req.body;
-
+        console.log(req.body);
         if (password !== confirmPassword) {
             return res.status(400).json({ error: "Passwords don't match" });
         }
@@ -100,7 +100,7 @@ const getUsersForSidebar = async (req, res) => {
 
         const filteredUsers = await User.find({ _id: { $ne: loggedInUserId } }).select("-password");
 
-        res.status(200).json(filteredUsers);
+        res.status(200).json({filteredUsers});
 
     } catch (error) {
         console.log("error", error);

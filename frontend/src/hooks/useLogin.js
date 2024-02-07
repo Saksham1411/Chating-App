@@ -3,21 +3,21 @@ import toast from 'react-hot-toast';
 import axios from 'axios';
 import { AuthContext } from '../context/AuthContext';
 
-const useSignup = () => {
+const useLogin = () => {
     const [loading, setLoading] = useState(false);
-    const{setAuthUser} = useContext(AuthContext);
+    const { setAuthUser } = useContext(AuthContext);
 
-    const signup = async ({ fullName, username, password, confirmPassword, gender }) => {
-        const success = handleInputErrors({ fullName, username, password, confirmPassword, gender });
+    const login = async (username, password) => {
+        const success = handleInputErrors(username, password);
         if (!success) return;
         setLoading(true);
         try {
-            const res = await axios.post("/signup", {
-                fullName, username, password, confirmPassword, gender
+            const res = await axios.post("/login", {
+                username, password,
             });
             const data = await res.data;
 
-            localStorage.setItem("chat-user",JSON.stringify(data));
+            localStorage.setItem("chat-user", JSON.stringify(data));
 
             setAuthUser(data);
             // console.log(res);
@@ -29,19 +29,14 @@ const useSignup = () => {
             setLoading(false);
         }
     }
-    return { loading, signup };
+    return { loading, login };
 }
 
-export default useSignup
+export default useLogin;
 
-function handleInputErrors({ fullName, username, password, confirmPassword, gender }) {
-    if (!fullName || !username || !password || !confirmPassword || !gender) {
+function handleInputErrors(username, password) {
+    if (!username || !password) {
         toast.error('please fill in all field');
-        return false
-    }
-
-    if (password !== confirmPassword) {
-        toast.error('Password do not match')
         return false
     }
 

@@ -1,5 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react"
+import toast from 'react-hot-toast';
+
 
 const useGetContacts = () => {
     const [loading, setLoading] = useState(false);
@@ -15,7 +17,7 @@ const useGetContacts = () => {
                 setConversation(data);
             } catch (error) {
                 toast.error(error.message);
-            }finally{
+            } finally {
                 setLoading(false);
             }
 
@@ -23,7 +25,7 @@ const useGetContacts = () => {
 
         getContacts();
     }, [])
-    return {loading,conversation};
+    return { loading, conversation };
 }
 
 export default useGetContacts

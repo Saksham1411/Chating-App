@@ -25,6 +25,7 @@ const sendMessage = async(req,res) => {
 
         if(newMessage){
             conversation.messages.push(newMessage._id);
+            conversation.save();
         }
 
         res.status(201).json(newMessage);

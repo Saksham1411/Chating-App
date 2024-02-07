@@ -1,16 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
+import { UserContext } from "../context/UserContext";
 
-const Conversation = ({conversation,lastIdx}) => {
+const Conversation = ({ conversation, lastIdx }) => {
+  const { selectedConversation, setSelectedConversation } =
+    useContext(UserContext);
   return (
     <>
-    <div className="divider py-0 h-1" />
-      <div className="flex gap-2 items-center hover:bg-sky-500 rounded p-2 py-1 cursor-pointer">
+      <div className="divider py-0 h-1" />
+      <div
+        className={
+          `flex gap-2 items-center hover:bg-sky-500 rounded p-2 py-1 cursor-pointer
+            ${selectedConversation?._id === conversation._id ? "bg-sky-500" : ""}`
+        }
+        onClick={e => setSelectedConversation(conversation)}
+      >
         <div className="avatar online">
           <div className="w-12 rounded-full">
-            <img
-              src={conversation.profilePic}
-              alt="user avatar"
-            />
+            <img src={conversation.profilePic} alt="user avatar" />
           </div>
         </div>
 

@@ -5,8 +5,7 @@ const mongoose = require('mongoose');
 const userRoutes = require('./routes/user');
 const messageRoutes = require('./routes/message');
 const cors = require('cors');
-
-const app = express();
+const {app,server} = require('./socket/socket')
 
 const PORT = process.env.PORT || 4000;
 
@@ -21,5 +20,9 @@ app.use(express.urlencoded());
 app.use('/', userRoutes);
 app.use('/', messageRoutes);
 
+//socket.io
+
+
+
 mongoose.connect(process.env.MONGO_URI).then(console.log('conected'))
-app.listen(4000, () => console.log('working'));
+server.listen(4000, () => console.log('working'));

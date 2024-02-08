@@ -6,11 +6,8 @@ const userRoutes = require('./routes/user');
 const messageRoutes = require('./routes/message');
 const cors = require('cors');
 const {app,server} = require('./socket/socket')
-const path = require('path');
 
 const PORT = process.env.PORT || 4000;
-
-// const __dirname = path.resolve();
 
 app.use(cookieParser());
 app.use(express.json());
@@ -18,10 +15,15 @@ app.use(cors({
     credentials: true,
     origin:process.env.FRONTEND
 }));
+console.log(process.env.FRONTEND);
 app.use(express.urlencoded());
 
 app.use('/api', userRoutes);
 app.use('/api', messageRoutes);
+
+app.get('/',(req,res)=>{
+    res.send('<h1>hello</h1>');
+})
 
 // app.use(express.static(path.resolve("./frontend/dist")));
 // app.get("*",(req,res)=>{

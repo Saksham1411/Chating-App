@@ -20,8 +20,6 @@ const useLogin = () => {
             localStorage.setItem("chat-user", JSON.stringify(data));
 
             setAuthUser(data);
-            // console.log(res);
-            // console.log(data);
         } catch (error) {
             toast.error(error.message);
             console.log(error);
@@ -44,6 +42,5 @@ function handleInputErrors(username, password) {
         toast.error('Password must be at least 6 characters');
         return false
     }
-
     return true
 }

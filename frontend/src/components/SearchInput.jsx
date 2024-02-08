@@ -5,25 +5,27 @@ import useGetContacts from "../hooks/useGetContacts";
 import toast from "react-hot-toast";
 
 const SearchInput = () => {
-	
   const [search, setSearch] = useState("");
-  const { setSelectedConversation } =
-    useContext(UserContext);
+  const { setSelectedConversation } = useContext(UserContext);
   const { conversation } = useGetContacts();
+
   const submitHandler = (e) => {
     e.preventDefault();
-	if(!search) return;
-	if(search.length < 3) {
-		toast.error('Search term must be at least 3 charachter');
-		return;
-	}
-	const searchConversation = conversation.find((c)=> c.fullName.toLowerCase().includes(search.toLowerCase()));
-	if(searchConversation){
-		setSelectedConversation(searchConversation);
-		setSearch('');
-	} else{
-		toast.error("No such user found!");
-	}
+    if (!search) return;
+    if (search.length < 3) {
+      toast.error("Search term must be at least 3 charachter");
+      return;
+    }
+    const searchConversation = conversation.find((c) =>
+      c.fullName.toLowerCase().includes(search.toLowerCase())
+    );
+    
+    if (searchConversation) {
+      setSelectedConversation(searchConversation);
+      setSearch("");
+    } else {
+      toast.error("No such user found!");
+    }
   };
   return (
     <form className="flex items-center gap-2" onSubmit={submitHandler}>

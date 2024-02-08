@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import GenderCheckbox from "./GenderCheckbox";
 import { useState } from "react";
+import GenderCheckbox from "./GenderCheckbox";
 import useSignup from "../hooks/useSignup";
 
 const SignUp = () => {
@@ -19,8 +19,7 @@ const SignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // console.log(input);
-	await signup(input);
+    await signup(input);
   };
   return (
     <div className="flex flex-col items-center justify-center min-w-96 mx-auto">
@@ -28,7 +27,6 @@ const SignUp = () => {
         <h1 className="text-3xl font-semibold text-center text-gray-300">
           Sign Up <span className="text-blue-500"> ChatApp</span>
         </h1>
-
         <form onSubmit={handleSubmit}>
           <div>
             <label className="label p-2">
@@ -42,7 +40,6 @@ const SignUp = () => {
               onChange={(e) => setInput({ ...input, fullName: e.target.value })}
             />
           </div>
-
           <div>
             <label className="label p-2 ">
               <span className="text-base label-text">Username</span>
@@ -55,7 +52,6 @@ const SignUp = () => {
               onChange={(e) => setInput({ ...input, username: e.target.value })}
             />
           </div>
-
           <div>
             <label className="label">
               <span className="text-base label-text">Password</span>
@@ -68,7 +64,6 @@ const SignUp = () => {
               onChange={(e) => setInput({ ...input, password: e.target.value })}
             />
           </div>
-
           <div>
             <label className="label">
               <span className="text-base label-text">Confirm Password</span>
@@ -83,12 +78,10 @@ const SignUp = () => {
               }
             />
           </div>
-
           <GenderCheckbox
             onCheckboxChange={onGenderChange}
             selectedGender={input.gender}
           />
-
           <Link
             to="/login"
             className="text-sm hover:underline hover:text-blue-600 mt-2 inline-block"
@@ -96,7 +89,6 @@ const SignUp = () => {
           >
             Already have an account?
           </Link>
-
           <div>
             <button className="btn btn-block btn-sm mt-2 border border-slate-700">
               Sign Up

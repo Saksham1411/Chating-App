@@ -7,10 +7,9 @@ const Message = ({ message }) => {
   const { selectedConversation } = useContext(UserContext);
 
   const fromMe = message.senderId === authUser._id;
+  
   const chatClassName = fromMe ? "chat-end" : "chat-start";
-  const profilePic = fromMe
-    ? authUser.profilePic
-    : selectedConversation.profilePic;
+  const profilePic = fromMe ? authUser.profilePic : selectedConversation.profilePic;
   const bubblebgColor = fromMe ? "bg-blue-500" : "";
 
   const date = new Date(message.createdAt);
@@ -27,7 +26,9 @@ const Message = ({ message }) => {
         <div className={`chat-bubble text-white ${bubblebgColor}`}>
           {message.message}
         </div>
-        <div className="chat-footer opacity-50 flex gap-1 items-center text-xs">{formattedTime}</div>
+        <div className="chat-footer opacity-50 flex gap-1 items-center text-xs">
+          {formattedTime}
+        </div>
       </div>
     </>
   );

@@ -37,9 +37,9 @@ const signup = async (req, res) => {
             });
         
             res.cookie("token", token, {
-                maxAge: 15 * 24 * 60 * 60 * 1000, // MS
-                httpOnly: true, // prevent XSS attacks cross-site scripting attacks
-                sameSite: "strict", // CSRF attacks cross-site request forgery attacks
+                maxAge: 15 * 24 * 60 * 60 * 1000, 
+                httpOnly: true, 
+                sameSite: "strict", 
             }).status(201).json({
                 _id: newUser._id,
                 fullName: newUser.fullName,
@@ -70,9 +70,9 @@ const login = async (req, res) => {
         });
     
         res.cookie("token", token, {
-            maxAge: 15 * 24 * 60 * 60 * 1000, // MS
-            httpOnly: true, // prevent XSS attacks cross-site scripting attacks
-            sameSite: "strict", // CSRF attacks cross-site request forgery attacks
+            maxAge: 15 * 24 * 60 * 60 * 1000, 
+            httpOnly: true, 
+            sameSite: "strict", 
         }).status(201).json({
             _id: user._id,
             fullName: user.fullName,

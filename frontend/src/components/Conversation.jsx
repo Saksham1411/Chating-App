@@ -18,7 +18,7 @@ const Conversation = ({ conversation, lastIdx }) => {
             }`}
         onClick={(e) => setSelectedConversation(conversation)}
       >
-        <div className={`avatar ${isOnline ? 'online':''}`}>
+        <div className={`avatar ${isOnline ? "online" : ""}`}>
           <div className="w-12 rounded-full">
             <img src={conversation.profilePic} alt="user avatar" />
           </div>
@@ -30,8 +30,6 @@ const Conversation = ({ conversation, lastIdx }) => {
           </div>
         </div>
       </div>
-
-      {/* {!lastIdx && } */}
     </>
   );
 };

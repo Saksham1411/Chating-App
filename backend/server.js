@@ -20,9 +20,5 @@ app.use(express.urlencoded());
 app.use('/', userRoutes);
 app.use('/', messageRoutes);
 
-//socket.io
-
-
-
 mongoose.connect(process.env.MONGO_URI).then(console.log('conected'))
-server.listen(4000, () => console.log('working'));
+server.listen(PORT, () => console.log('working'));

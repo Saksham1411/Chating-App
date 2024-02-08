@@ -3,9 +3,10 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import { Toaster } from "react-hot-toast";
-import axios from "axios";
 import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext";
+import axios from "axios";
+
 function App() {
   axios.defaults.baseURL = "http://localhost:4000";
   axios.defaults.withCredentials = true;
@@ -14,9 +15,10 @@ function App() {
   return (
     <div className="p-4 h-screen flex items-center justify-center">
       <Routes>
-        <Route path="/" 
-                  element={authUser ? <Home /> : <Navigate to="/login" /> }
-                  />
+        <Route
+          path="/"
+          element={authUser ? <Home /> : <Navigate to="/login" />}
+        />
         <Route
           path="/login"
           element={authUser ? <Navigate to="/" /> : <Login />}

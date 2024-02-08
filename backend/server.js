@@ -22,10 +22,10 @@ app.use(express.urlencoded());
 app.use('/api', userRoutes);
 app.use('/api', messageRoutes);
 
-app.use(express.static(path.resolve("./frontend/dist")));
-app.get("*",(req,res)=>{
-    res.send(path.resolve("./frontend/dist/index.html"));
-})
+// app.use(express.static(path.resolve("./frontend/dist")));
+// app.get("*",(req,res)=>{
+//     res.send(path.resolve("./frontend/dist/index.html"));
+// })
 
 
 mongoose.connect(process.env.MONGO_URI).then(console.log('conected'))

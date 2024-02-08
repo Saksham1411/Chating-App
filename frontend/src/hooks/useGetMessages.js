@@ -15,7 +15,12 @@ const useGetMessages = () => {
             try {
                 const res = await axios.get(`/api/${selectedConversation._id}`);
                 const data = await res.data.messages;
-                if(!data) return;
+                // console.log(data);
+                if(!data){
+                    setMessages([]);
+                    return;
+                } 
+                    
                 setMessages(data);
 
             } catch (error) {

@@ -14,7 +14,7 @@ const useSendMessage = () => {
         try {
             const res = await axios.post(`/send/${selectedConversation._id}`, { message });
             const data = await res.data;
-
+            if(!data) return;
             setMessages([...messages,data]);
         } catch (error) {
             toast.error(error.message);

@@ -60,7 +60,7 @@ const getMessage = async(req,res) => {
         res.status(200).json(convo);
 
     } catch (error) {
-        console.log("error in sendMessage ", err.message);
+        console.log("error in sendMessage ", error.message);
         res.status(500).json({ error: "Internal server error" });
     }
 }

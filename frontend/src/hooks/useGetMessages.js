@@ -13,7 +13,7 @@ const useGetMessages = () => {
         const getMessages = async()=>{
             setLoading(true);
             try {
-                const res = await axios.get(`/${selectedConversation._id}`);
+                const res = await axios.get(`/api/${selectedConversation._id}`);
                 const data = await res.data.messages;
                 if(!data) return;
                 setMessages(data);

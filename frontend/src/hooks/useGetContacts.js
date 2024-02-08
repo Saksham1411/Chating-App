@@ -11,7 +11,7 @@ const useGetContacts = () => {
         const getContacts = async () => {
             setLoading(true);
             try {
-                const res = await axios.get('/users');
+                const res = await axios.get('/api/users');
                 const data = await res.data.filteredUsers;
                 // console.log(res,data);
                 setConversation(data);

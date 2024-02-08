@@ -12,7 +12,7 @@ const useLogout = () => {
     const logout = async () => {
         setLoading(true);
         try {
-            const res = axios.post('/logout');
+            const res = axios.post('/api/logout');
             // const data = await res.data;
 
             localStorage.removeItem("chat-user");

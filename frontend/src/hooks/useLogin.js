@@ -12,7 +12,7 @@ const useLogin = () => {
         if (!success) return;
         setLoading(true);
         try {
-            const res = await axios.post("/login", {
+            const res = await axios.post("/api/login", {
                 username, password,
             });
             const data = await res.data;

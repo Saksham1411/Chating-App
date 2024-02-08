@@ -12,7 +12,7 @@ const useSignup = () => {
         if (!success) return;
         setLoading(true);
         try {
-            const res = await axios.post("/signup", {
+            const res = await axios.post("/api/signup", {
                 fullName, username, password, confirmPassword, gender
             });
             const data = await res.data;

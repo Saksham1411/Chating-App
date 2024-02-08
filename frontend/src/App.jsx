@@ -6,12 +6,12 @@ import { Toaster } from "react-hot-toast";
 import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext";
 import axios from "axios";
-import dotenv from 'dotenv';
+// import dotenv from 'dotenv';
 
-dotenv.config();
+// dotenv.config();
 function App() {
-  const PORT = process.env.PORT || 4000;
-  axios.defaults.baseURL = `http://localhost:${PORT}`;
+  // const PORT = process.env.PORT || 4000;
+  axios.defaults.baseURL = `https://chating-app-backend.vercel.app`;
   axios.defaults.withCredentials = true;
   const { authUser } = useContext(AuthContext);
 

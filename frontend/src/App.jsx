@@ -11,8 +11,8 @@ import axios from "axios";
 // dotenv.config();
 function App() {
   // const PORT = process.env.PORT || 4000;
-  axios.defaults.baseURL = `https://chatapp-backend-sabz.onrender.com`;
-  // axios.defaults.baseURL = `http://localhost:4000`;
+  // axios.defaults.baseURL = `https://chatapp-backend-sabz.onrender.com`;
+  axios.defaults.baseURL = `http://localhost:4000`;
   axios.defaults.withCredentials = true;
   const { authUser } = useContext(AuthContext);
 
